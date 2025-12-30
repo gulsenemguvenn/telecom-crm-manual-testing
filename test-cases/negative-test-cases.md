@@ -42,3 +42,76 @@
 - **Beklenen Sonuç:**  
   - Kayıt oluşturulmaz  
   - "Bu TC ile kayıt mevcut" benzeri hata mesajı gösterilir
+
+---
+
+## Modül: Subscription Management
+
+---
+
+## TC-SUB-NEG-001 – Pasif müşteriye abonelik oluşturma denemesi
+
+- **Önkoşul:**  
+  - Müşteri durumu: Pasif
+- **Adımlar:**  
+  - Pasif müşteri detayına gir  
+  - “Yeni Abonelik” oluşturmaya çalış
+- **Test Verisi:**  
+  - Müşteri: Pasif  
+  - Tarife: “Smart 20GB”
+- **Beklenen Sonuç:**  
+  - Abonelik oluşturulmaz  
+  - Sistem “Pasif müşteriye abonelik oluşturulamaz” benzeri hata mesajı gösterir
+
+---
+
+## TC-SUB-NEG-002 – Uygun olmayan kampanya ile tarife değişikliği
+
+- **Önkoşul:**  
+  - Aktif abonelik mevcut
+- **Adımlar:**  
+  - Abonelik detayını aç  
+  - “Tarife Değiştir” ekranına gir  
+  - Uygun olmayan kampanya/tarifeyi seç ve onayla
+- **Test Verisi:**  
+  - Kampanya: “Student Special” (müşteri öğrenci değil varsayımı)
+- **Beklenen Sonuç:**  
+  - Tarife değişikliği gerçekleşmez  
+  - Uygunluk uyarısı gösterilir  
+  - Abonelik mevcut tarifesinde kalır
+
+---
+
+## Modül: Billing & Invoice
+
+---
+
+## TC-BILL-NEG-001 – Ödenmiş faturayı tekrar ödeme denemesi
+
+- **Önkoşul:**  
+  - Fatura durumu: Ödendi
+- **Adımlar:**  
+  - Ödenmiş faturayı seç  
+  - “Öde” işlemine tıkla (varsa)
+- **Test Verisi:**  
+  - Fatura: Ödendi
+- **Beklenen Sonuç:**  
+  - Ödeme işlemi başlatılmaz  
+  - Sistem “Ödenmiş fatura tekrar ödenemez” benzeri uyarı gösterir
+
+---
+
+## TC-BILL-NEG-002 – Ödeme sırasında başarısızlık (gateway/bağlantı)
+
+- **Önkoşul:**  
+  - Fatura durumu: Ödenmedi
+- **Adımlar:**  
+  - Ödenmemiş faturada “Öde” adımını başlat  
+  - Ödeme sırasında hata oluştuğunu varsay (timeout/bağlantı)
+- **Test Verisi:**  
+  - Fatura: Ödenmedi  
+  - Ödeme sonucu: Başarısız (simülasyon)
+- **Beklenen Sonuç:**  
+  - Fatura durumu “Ödenmedi” kalır  
+  - Kullanıcıya anlaşılır hata mesajı gösterilir  
+  - Çift işlem (double charge) oluşmaz
