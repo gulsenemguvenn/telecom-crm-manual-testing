@@ -28,4 +28,14 @@ Sistem aşağıdaki temel modülleri kapsamaktadır:
 - `bug-reports/` : Örnek hata raporları
 - `test-summary-report/` : Test süreci sonunda özet rapor
 
+---
+
+## 📘 Proje Hakkında Detaylı Yazı
+
+Bu projede kullanılan manuel test yaklaşımı, test planlama süreci,  
+risk bazlı test düşüncesi ve CRM domain detayları Medium yazısında  
+ayrıntılı olarak ele alınmıştır.
+
+🔗 Medium Yazısı:  
+https://medium.com/@gulsenemguvenceng/telecom-crm-üzerinden-uçtan-uca-manuel-qa-projesi-35549ec36e88
 

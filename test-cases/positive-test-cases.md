@@ -166,3 +166,98 @@
 - **Beklenen Sonuç:**  
   - Fatura “Gecikmiş” olarak işaretlenir  
   - Kullanıcıya gecikme ile ilgili bilgilendirme görünür
+
+---
+
+## Modül: Order Management
+
+---
+
+## TC-ORD-POS-001 – Yeni abonelik siparişi oluşturma
+
+- **Önkoşul:**  
+  - Kullanıcı rolü: Admin veya Agent  
+  - Müşteri durumu: Aktif
+- **Adımlar:**  
+  - Müşteri detayına gir  
+  - “Siparişler” sekmesini aç  
+  - “Yeni Sipariş” oluştur  
+  - Abonelik/tarife bilgilerini seç ve kaydet
+- **Test Verisi:**  
+  - Müşteri: Aktif  
+  - Sipariş Tipi: Yeni Abonelik
+- **Beklenen Sonuç:**  
+  - Sipariş başarıyla oluşturulur  
+  - Sipariş durumu “Pending” olarak görüntülenir
+
+---
+
+## TC-ORD-POS-002 – Sipariş durumunun tamamlanması (Completed)
+
+- **Önkoşul:**  
+  - Pending durumunda bir sipariş mevcut olmalı
+- **Adımlar:**  
+  - Sipariş detayını aç  
+  - Sistemsel işlem tamamlanmasını gözlemle (varsayım)
+- **Test Verisi:**  
+  - Sipariş Durumu: Pending
+- **Beklenen Sonuç:**  
+  - Sipariş durumu “Completed” olur  
+  - Abonelik aktif hale gelir  
+  - Kullanıcıya bilgilendirme gösterilir
+
+---
+
+## TC-ORD-POS-003 – Sipariş iptali (uygun durumda)
+
+- **Önkoşul:**  
+  - Sipariş durumu: Pending
+- **Adımlar:**  
+  - Sipariş detayına gir  
+  - “İptal Et” butonuna tıkla  
+  - Onayla
+- **Test Verisi:**  
+  - Sipariş: Pending
+- **Beklenen Sonuç:**  
+  - Sipariş durumu “Cancelled” olur  
+  - Siparişle ilişkili işlem başlatılmaz
+
+---
+
+## Modül: Complaint / Ticket Management
+
+---
+
+## TC-COMP-POS-001 – Yeni şikayet oluşturma
+
+- **Önkoşul:**  
+  - Kullanıcı rolü: Agent veya Admin  
+  - Aktif müşteri mevcut
+- **Adımlar:**  
+  - Müşteri detayına gir  
+  - “Şikayetler / Talepler” sekmesini aç  
+  - “Yeni Şikayet” oluştur  
+  - Şikayet tipini ve açıklamayı gir  
+  - Kaydet
+- **Test Verisi:**  
+  - Şikayet Tipi: Faturalama  
+  - Açıklama: “Fatura tutarı hatalı”
+- **Beklenen Sonuç:**  
+  - Şikayet başarıyla oluşturulur  
+  - Durum “Open” olarak görüntülenir
+
+---
+
+## TC-COMP-POS-002 – Şikayet durumu güncelleme
+
+- **Önkoşul:**  
+  - Şikayet durumu: Open
+- **Adımlar:**  
+  - Şikayet detayını aç  
+  - Durumu “In Progress” olarak güncelle  
+  - Ardından “Closed” olarak kapat
+- **Test Verisi:**  
+  - Yeni Durum: In Progress → Closed
+- **Beklenen Sonuç:**  
+  - Durum değişiklikleri doğru şekilde kaydedilir  
+  - Şikayet geçmişi güncellenir

@@ -129,3 +129,69 @@
   - Yeni fatura dönemi kurala uygun oluşur  
   - Tutar/dönem bilgileri tutarlı kalır  
   - Kullanıcı bilgilendirilir (varsa)
+
+---
+
+## Modül: Order Management
+
+---
+
+## TC-ORD-EDGE-001 – Aynı müşteri için eş zamanlı iki sipariş denemesi
+
+- **Önkoşul:**  
+  - Müşteri durumu: Aktif
+- **Adımlar:**  
+  - Aynı müşteri için iki farklı sipariş başlat  
+  - İşlem sonuçlarını gözlemle
+- **Test Verisi:**  
+  - Sipariş Tipi: Yeni Abonelik (2 adet)
+- **Beklenen Sonuç:**  
+  - Sistem çakışan siparişi engeller veya sıraya alır  
+  - Tutarsız sipariş oluşmaz
+
+---
+
+## TC-ORD-EDGE-002 – Sipariş oluşturma sırasında bağlantı kesilmesi
+
+- **Önkoşul:**  
+  - Sipariş oluşturma adımı başlatılmış olmalı
+- **Adımlar:**  
+  - Sipariş oluştururken bağlantının koptuğunu varsay  
+  - Sisteme tekrar giriş yap
+- **Test Verisi:**  
+  - Ağ durumu: Kesinti
+- **Beklenen Sonuç:**  
+  - Yarım sipariş oluşmaz  
+  - Sipariş durumu net şekilde görüntülenir (ya yoktur ya da Failed)
+
+---
+
+## Modül: Complaint / Ticket Management
+
+---
+
+## TC-COMP-EDGE-001 – SLA süresi dolmuş şikayet
+
+- **Önkoşul:**  
+  - SLA süresi aşılmış bir şikayet mevcut
+- **Adımlar:**  
+  - Şikayet detayını görüntüle
+- **Test Verisi:**  
+  - SLA: Aşılmış
+- **Beklenen Sonuç:**  
+  - Şikayet “SLA Aşıldı” olarak işaretlenir  
+  - Kullanıcı bilgilendirilir
+
+---
+
+## TC-COMP-EDGE-002 – Aynı müşteri için kısa sürede çoklu şikayet oluşturma
+
+- **Önkoşul:**  
+  - Aktif müşteri
+- **Adımlar:**  
+  - Aynı müşteri için kısa sürede birden fazla şikayet oluştur
+- **Test Verisi:**  
+  - Şikayet Tipi: Aynı
+- **Beklenen Sonuç:**  
+  - Sistem uyarı verir veya ilişkilendirme yapar  
+  - Kayıtlar tutarlı şekilde oluşturulur

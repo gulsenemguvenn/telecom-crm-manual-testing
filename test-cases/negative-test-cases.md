@@ -115,3 +115,71 @@
   - Fatura durumu “Ödenmedi” kalır  
   - Kullanıcıya anlaşılır hata mesajı gösterilir  
   - Çift işlem (double charge) oluşmaz
+
+---
+
+## Modül: Order Management
+
+---
+
+## TC-ORD-NEG-001 – Tamamlanmış siparişin iptal edilmeye çalışılması
+
+- **Önkoşul:**  
+  - Sipariş durumu: Completed
+- **Adımlar:**  
+  - Tamamlanmış siparişi aç  
+  - “İptal Et” işlemini dene
+- **Test Verisi:**  
+  - Sipariş: Completed
+- **Beklenen Sonuç:**  
+  - İptal işlemi yapılmaz  
+  - Sistem uygun uyarı mesajı gösterir
+
+---
+
+## TC-ORD-NEG-002 – Yetkisiz kullanıcı ile sipariş oluşturma
+
+- **Önkoşul:**  
+  - Kullanıcı rolü: Viewer / Yetkisiz
+- **Adımlar:**  
+  - Müşteri detayına gir  
+  - “Yeni Sipariş” oluşturmaya çalış
+- **Test Verisi:**  
+  - Kullanıcı: Yetkisiz
+- **Beklenen Sonuç:**  
+  - Sipariş oluşturulamaz  
+  - Yetki uyarısı gösterilir
+
+---
+
+## Modül: Complaint / Ticket Management
+
+---
+
+## TC-COMP-NEG-001 – Kapalı şikayetin güncellenmeye çalışılması
+
+- **Önkoşul:**  
+  - Şikayet durumu: Closed
+- **Adımlar:**  
+  - Kapalı şikayeti aç  
+  - Güncelleme yapmaya çalış
+- **Test Verisi:**  
+  - Şikayet: Closed
+- **Beklenen Sonuç:**  
+  - Güncelleme yapılmaz  
+  - Sistem “Kapalı şikayet güncellenemez” uyarısı gösterir
+
+---
+
+## TC-COMP-NEG-002 – Yetkisiz kullanıcı ile şikayet kapatma
+
+- **Önkoşul:**  
+  - Kullanıcı rolü: Viewer / Yetkisiz
+- **Adımlar:**  
+  - Şikayet detayına gir  
+  - “Kapat” işlemini dene
+- **Test Verisi:**  
+  - Kullanıcı: Yetkisiz
+- **Beklenen Sonuç:**  
+  - İşlem yapılmaz  
+  - Yetkilendirme uyarısı gösterilir

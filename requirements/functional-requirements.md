@@ -117,3 +117,78 @@
 ### FR-15: Vade / Gecikme Bilgilendirmesi
 
 - Vadesi geçmiş faturalar için kullanıcı bilgilendirilmeli ve fatura “Gecikmiş” olarak gösterilmelidir.
+
+---
+
+## 4. Sipariş Yönetimi (Order Management)
+
+---
+
+### FR-16: Sipariş Oluşturma
+
+- Sistem, yetkili kullanıcıların müşteri için sipariş oluşturmasına izin vermelidir.
+
+---
+
+### FR-17: Sipariş Durumları
+
+- Siparişler aşağıdaki durumlarda görüntülenebilmelidir:
+  - Pending (Beklemede)
+  - Completed (Tamamlandı)
+  - Failed (Başarısız)
+  - Cancelled (İptal Edildi)
+
+---
+
+### FR-18: Sipariş İptali
+
+- Uygun durumdaki siparişler kullanıcı tarafından iptal edilebilmelidir.
+
+---
+
+### FR-19: Başarısız Sipariş Yönetimi
+
+- İş kuralı veya teknik hata durumunda sipariş “Failed” durumuna alınmalıdır.
+
+---
+
+### FR-20: Çakışan Sipariş Kontrolü
+
+- Aynı müşteri için aynı anda birden fazla çakışan sipariş oluşturulmasına izin verilmemelidir.
+
+---
+
+## 5. Şikayet / Talep Yönetimi (Complaint Management)
+
+---
+
+### FR-21: Şikayet Oluşturma
+
+- Sistem, kullanıcıların müşteri adına şikayet/talep oluşturmasına izin vermelidir.
+
+---
+
+### FR-22: Şikayet Durum Yönetimi
+
+- Şikayetler aşağıdaki durumlarda yönetilebilmelidir:
+  - Open
+  - In Progress
+  - Closed
+
+---
+
+### FR-23: Kapalı Şikayet Kısıtı
+
+- Closed durumundaki şikayetler üzerinde güncelleme yapılamamalıdır.
+
+---
+
+### FR-24: Yetkilendirme Kontrolü
+
+- Sadece yetkili kullanıcılar şikayet üzerinde işlem yapabilmelidir.
+
+---
+
+### FR-25: SLA Takibi
+
+- Sistem, SLA süresi aşan şikayetleri işaretlemeli ve kullanıcıyı bilgilendirmelidir.
